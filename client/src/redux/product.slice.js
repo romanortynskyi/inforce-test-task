@@ -88,8 +88,7 @@ export const productSlice = createSlice({
             state.comments.isFetching = true;
         },
         [deleteComment.fulfilled]: (state, action) => {
-            console.log(action)
-            state.comments.data = state.comments.data.filter(comment => comment.id !== action.payload);
+            state.comments.data = state.comments.data.filter(comment => comment.id !== action.meta.arg);
             state.comments.isFetching = false;
         },
     },
